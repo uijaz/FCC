@@ -8,7 +8,6 @@ class Category:
     self.withdrawals = 0
 
   def __str__(self):
-    # * A title line of 30 characters where the name of the category is centered in a line of `*` characters.
     title = ("{:*^30}".format(self.category)) + '\n'
 
     # * A list of the items in the ledger. Each line should show the description and amount.
