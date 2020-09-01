@@ -74,6 +74,7 @@ class Category:
 def create_spend_chart(categories):
   # return a string that is a bar chart.
   returing_string = ""
+  cat_length = len(categories)
 
   # add all withdrawls
   # total = sum(x.withdrawals for x in categories)
@@ -104,7 +105,7 @@ def create_spend_chart(categories):
     dashed_line = "    -"
   
   dashed_line = "    -"
-  for y in percentage_spent:
+  for y in range(cat_length):
     dashed_line += ('---')
   dashed_line += '\n'
 
