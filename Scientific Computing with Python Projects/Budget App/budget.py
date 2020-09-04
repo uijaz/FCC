@@ -1,34 +1,19 @@
 class Category:
 
   def __init__(self, cat):
-    # instance variable
     self.ledger = []
     self.category = cat
-    # self.initial_deposit = 0
     self.withdrawals = 0
 
   def __str__(self):
     title = ("{:*^30}".format(self.category)) + '\n'
-
-    # * A list of the items in the ledger. Each line should show the description and amount.
-    # The first 23 characters of the description should be displayed, then the amount.
-    # The amount should be right aligned, contain two decimal places, and display a maximum of 7 characters.
     items = ""
     for x in self.ledger:
       items += ("{:23.23}{:>7.2f}".format(x["description"], x["amount"])) + '\n'
-
-    # * A line displaying the category total.
     total = ("Total: {:.2f}".format(self.get_balance()))
-
     return title + items + total
-    
-
-  def deposit(self, amount, description=""):
-    
-    # set initial deposit
-    # if (len(self.ledger) == 0):
-    #   self.initial_deposit = amount
-    
+  
+  def deposit(self, amount, description=""):    
     self.ledger.append({"amount": amount, "description": description})
 
   def withdraw(self, amount, description=""):
@@ -50,10 +35,7 @@ class Category:
     return balance
 
   def transfer(self, amount, destination_category):
-    # * The method should add a withdrawal with the amount and the description
     withdraw_desc = "Transfer to " + str(destination_category.category)
-
-    # * The method should then add a deposit to the other budget category with the amount and the description
     deposit_desc = "Transfer from " + str(self.category)
 
     if (self.check_funds(amount)):
@@ -72,18 +54,12 @@ class Category:
       return False
 
 def create_spend_chart(categories):
-  # return a string that is a bar chart.
   returing_string = ""
   cat_length = len(categories)
-
-  # add all withdrawls
-  # total = sum(x.withdrawals for x in categories)
   total_spent = 0
   for x in categories:
     total_spent += x.withdrawals
 
-  # percentage of spent per category from the total spent
-  # percentages = [(x.withdrawals/total)//(1/100) for x in categories]
   biggest_category_word = 0
   percentage_spent = {}
   for x in categories:
