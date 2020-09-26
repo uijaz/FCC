@@ -7,3 +7,7 @@ Scientific Computing with Python Projects:
 - Budget App
 - Polygon Area Calculator
 - Probability Calculator
+
+Data Analysis with Python Projects
+
+ - Mean-Variance-Standard Deviation Calculator
