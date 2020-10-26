@@ -11,3 +11,4 @@ Scientific Computing with Python Projects:
 Data Analysis with Python Projects
 
  - Mean-Variance-Standard Deviation Calculator
+ - Demographic Data Analyzer
