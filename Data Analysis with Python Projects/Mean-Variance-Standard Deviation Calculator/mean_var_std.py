@@ -1,12 +1,15 @@
 import numpy as np
 
 def calculate(list):
+    # test 3
     if len(list) != 9:
         raise ValueError("List must contain nine numbers.")
     else:
         n_array_3d = np.array(list).reshape(3, 3)
         n_array_flat = np.array(list)
 
+        # test 1
+        # test 2
         calculations = {
             'mean': mean(n_array_3d, n_array_flat), 
             'variance': variance(n_array_3d, n_array_flat),

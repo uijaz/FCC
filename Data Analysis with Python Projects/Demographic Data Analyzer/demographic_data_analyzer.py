@@ -7,18 +7,18 @@ def calculate_demographic_data(print_data=True):
     rows, cols = df.shape
 
     # How many of each race are represented in this dataset? This should be a Pandas series with race names as the index labels.
-    # 1
+    # test 1
     race_count = df['race'].value_counts()
 
     # What is the average age of men?
     filter_sex_male = (df['sex'] == 'Male')
-    # 2
+    # test 2
     average_age_men = round(df.loc[filter_sex_male, 'age'].mean(), 1)
 
     # What is the percentage of people who have a Bachelor's degree?
     filter_education_bachelors = (df['education'] == 'Bachelors')
     total_education_bachelors = filter_education_bachelors.sum()
-    # 3
+    # test 3
     percentage_bachelors = round(total_education_bachelors / rows * 100, 1)
 
     # What percentage of people with advanced education (`Bachelors`, `Masters`, or `Doctorate`) make more than 50K?
@@ -35,18 +35,18 @@ def calculate_demographic_data(print_data=True):
     filter_higher_education_rich = filter_salary_rich & filter_higher_education
     total_higher_education = filter_higher_education.sum()
     total_higher_education_rich = filter_higher_education_rich.sum()
-    # 4
+    # test 4
     higher_education_rich = round(total_higher_education_rich / total_higher_education * 100, 1)
 
     filter_lower_education = ~filter_higher_education
     filter_lower_education_rich = filter_salary_rich & filter_lower_education
     total_lower_education = filter_lower_education.sum()
     total_lower_education_rich = filter_lower_education_rich.sum()
-    # 5
+    # test 5
     lower_education_rich = round(total_lower_education_rich / total_lower_education * 100, 1)
     
     # What is the minimum number of hours a person works per week (hours-per-week feature)?
-    # 6
+    # test 6
     min_work_hours = round(df['hours-per-week'].min(), 1)
     
     # What percentage of the people who work the minimum number of hours per week have a salary of >50K?
@@ -54,19 +54,19 @@ def calculate_demographic_data(print_data=True):
     filter_min_hours_rich = filter_salary_rich & filter_min_hours
     total_min_hours = filter_min_hours.sum()
     total_min_hours_rich = filter_min_hours_rich.sum()
-    # 7
+    # test 7
     rich_percentage = round(total_min_hours_rich / total_min_hours * 100, 1)
 
     # What country has the highest percentage of people that earn >50K?
     df_salary_rich = df[(filter_salary_rich) & df['native-country']]
     df_salary_rich_country = (df_salary_rich['native-country'].value_counts()) / (df['native-country'].value_counts()) * 100
-    # 8
+    # test 8
     highest_earning_country = df_salary_rich_country.idxmax()
-    # 9
+    # test 9
     highest_earning_country_percentage = round(df_salary_rich_country.loc[highest_earning_country], 1)
 
     # Identify the most popular occupation for those who earn >50K in India.
-    # 10
+    # test 10
     top_IN_occupation = df['occupation'].value_counts().idxmax()   
 
     # DO NOT MODIFY BELOW THIS LINE
